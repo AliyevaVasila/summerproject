@@ -9,7 +9,7 @@ public class App implements ActionListener {
     JButton button;
     JPanel panel;
     Font font = new Font("Times New Roman", Font.BOLD, 20);
-    // String imagePath = "C:\\Users\\HP\\Pictures\\icon.png";
+   
     boolean copyToTextArea2 = true;
 
     public static void main(String[] args) throws Exception {
