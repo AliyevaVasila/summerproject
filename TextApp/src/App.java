@@ -27,7 +27,7 @@ public class App implements ActionListener {
         contentPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         frame.add(contentPanel, BorderLayout.CENTER);
 
-        JLabel descriptionLabel = new JLabel("Add text and click the button to copy it to the other textarea");
+        JLabel descriptionLabel = new JLabel("Add text and click the button to copy it the other textbox");
         contentPanel.add(descriptionLabel, BorderLayout.NORTH);
 
         textArea1 = new JTextArea();
