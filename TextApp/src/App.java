@@ -46,8 +46,8 @@ public class App implements ActionListener {
         scrollPane2.setPreferredSize(new Dimension(270, 400));
         contentPanel.add(scrollPane2, BorderLayout.EAST);
 
-        button = new JButton("\u279C");
-        button.setPreferredSize(new Dimension(70, 50));
+        button = new JButton("\u276F");
+        button.setPreferredSize(new Dimension(60, 50));
         button.addActionListener(this);
 
         JPanel buttonPanel = new JPanel();
@@ -61,10 +61,12 @@ public class App implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
             if (copyToTextArea2) {
+                button.setText("\u276E");
                 String text = textArea1.getText();
                 textArea2.setText(text);
                 textArea1.setText("");
             } else {
+                button.setText("\u276F");
                 String text = textArea2.getText();
                 textArea1.setText(text);
                 textArea2.setText("");
