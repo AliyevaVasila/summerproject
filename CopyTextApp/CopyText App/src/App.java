@@ -15,6 +15,7 @@ public class App extends Application implements EventHandler<ActionEvent> {
     Button button;
     TextArea textField1 = new TextArea();
     TextArea textField2 = new TextArea();
+    String selectedText;
 
     boolean copyToTextField2 = true;
 
@@ -29,15 +30,15 @@ public class App extends Application implements EventHandler<ActionEvent> {
 
         VBox vbox1 = new VBox(10);
         vbox1.setPadding(new Insets(20));
-        vbox1.setMinWidth(300);  
-        vbox1.setStyle("-fx-background-color: #FBFAF0");  
-        vbox1.getChildren().addAll(new Label("Text Field 1"), textField1);
+        vbox1.setMinWidth(300);
+        vbox1.setStyle("-fx-background-color: #FBFAF0");
+        vbox1.getChildren().addAll(new Label("Text Area 1"), textField1);
 
         VBox vbox2 = new VBox(10);
         vbox2.setPadding(new Insets(20));
-        vbox2.setMinWidth(300); 
-        vbox2.setStyle("-fx-background-color: #FFE5D9");  
-        vbox2.getChildren().addAll(new Label("Text Field 2"), textField2);
+        vbox2.setMinWidth(300);
+        vbox2.setStyle("-fx-background-color: #FFE5D9");
+        vbox2.getChildren().addAll(new Label("Text Area 2"), textField2);
 
         HBox hbox = new HBox(10);
         hbox.setPadding(new Insets(20));
@@ -49,7 +50,7 @@ public class App extends Application implements EventHandler<ActionEvent> {
         StackPane layout = new StackPane();
         layout.getChildren().addAll(hbox, button);
 
-        Scene scene = new Scene(layout, 620, 550);
+        Scene scene = new Scene(layout, 620, 360);
         stage.setScene(scene);
 
         stage.show();
@@ -60,14 +61,27 @@ public class App extends Application implements EventHandler<ActionEvent> {
         if (e.getSource() == button) {
             if (copyToTextField2) {
                 button.setText("\u276E");
-                String text = textField1.getText();
-                textField2.setText(text);
-                textField1.setText("");
+                if (!textField1.getSelectedText().isEmpty()) {
+                    String text = textField1.getSelectedText();
+                    textField2.setText(text);
+                    textField1.setText("");
+                } else {
+                    String text = textField1.getText();
+                    textField2.setText(text);
+                    textField1.setText("");
+                }
             } else {
                 button.setText("\u276F");
-                String text = textField2.getText();
-                textField1.setText(text);
-                textField2.setText("");
+                if (!textField2.getSelectedText().isEmpty()) {
+                    String text = textField2.getSelectedText();
+                    textField1.setText(text);
+                    textField2.setText("");
+                } else {
+                    String text = textField2.getText();
+                    textField1.setText(text);
+                    textField2.setText("");
+                }
+
             }
 
             copyToTextField2 = !copyToTextField2;
